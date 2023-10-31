@@ -1,0 +1,51 @@
+package tpLapost;
+
+import java.util.Scanner;
+
+public class App {
+
+    public static void main(String[] args) {
+        // Keyboard input
+        System.out.println("Entrez 1 pour choisir une lettre, 2 pour choisir un colis");
+        Scanner scan = new Scanner(System.in);
+        int objectType = scan.nextInt();
+
+        if (objectType == 1) {
+            // User chose "lettre"
+            // Gather information for a Lettre object
+            System.out.println("Entrez le nom du destinataire:");
+            String nomDestinataire = scan.next();
+            // Similar prompts for other attributes
+
+            System.out.println("Lettre is urgent (true/false):");
+            boolean urgent = scan.nextBoolean();
+
+            Lettre lettre = new Lettre(nomDestinataire, adresseDestinataire, codePostal, villeDestinataire, recomandé, urgent);
+
+            // Calculate and print the shipping cost
+            lettre.calculerPrixExpedition();
+        } else if (objectType == 2) {
+            // User chose "colis"
+            // Gather information for a Colis object
+            System.out.println("Entrez le nom du destinataire:");
+            String nomDestinataire = scan.next();
+            // Similar prompts for other attributes
+
+            System.out.println("Colis is fragile (true/false):");
+            boolean fragile = scan.nextBoolean();
+
+            System.out.println("Entrez le poids du colis en kg:");
+            double poids = scan.nextDouble();
+
+            Colis colis = new Colis(nomDestinataire, adresseDestinataire, codePostal, villeDestinataire, recomandé, poids, fragile);
+
+            // Calculate and print the shipping cost
+            double prixExpedition = colis.calculerPrixExpedition();
+            System.out.println("Prix d'expédition du colis : " + prixExpedition);
+        } else {
+            System.out.println("Choix invalide. Entrez 1 pour lettre ou 2 pour colis.");
+        }
+
+        scan.close();
+    }
+}
