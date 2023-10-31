@@ -1,0 +1,32 @@
+package tpLapost;
+
+public class ObjetPostal {
+	String nomDestinataire;
+	String adresseDestinataire;
+	String codePostal;
+	String villeDestinataire;
+	boolean recomandé = false;
+	
+	
+
+	public ObjetPostal(String nomDestinataire, String adresseDestinataire, String codePostal, String villeDestinataire,
+			boolean recomandé) {
+		super();
+		this.nomDestinataire = nomDestinataire;
+		this.adresseDestinataire = adresseDestinataire;
+		this.codePostal = codePostal;
+		this.villeDestinataire = villeDestinataire;
+		this.recomandé = recomandé;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "ObjetPostal [nomDestinataire=" + nomDestinataire + ", adresseDestinataire=" + adresseDestinataire
+				+ ", codePostal=" + codePostal + ", villeDestinataire=" + villeDestinataire + ", recomandé=" + recomandé
+				+ "]";
+	}
+	
+
+}
