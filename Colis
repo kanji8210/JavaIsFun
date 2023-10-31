@@ -1,0 +1,42 @@
+package tpLapost;
+
+public class Colis extends ObjetPostal {
+    // Attributes
+    double poids; // Weight of the parcel in kgs
+    boolean fragile = false; // Indicates whether the parcel is fragile
+
+    // Constructor
+    public Colis(String nomDestinataire, String adresseDestinataire, String codePostal, String villeDestinataire,
+                boolean recomandé, double poids, boolean fragile) {
+        super(nomDestinataire, adresseDestinataire, codePostal, villeDestinataire, recomandé);
+        this.poids = poids;
+        this.fragile = fragile;
+    }
+
+    // Calculate shipping cost for the colis
+    public double calculerPrixExpedition() {
+        double prixAffranchissement = 5.0;
+        double surcoutRecomande = 2.0;
+        double surcoutFragile = 3.0;
+
+        if (recomandé) {
+            prixAffranchissement += surcoutRecomande;
+        }
+        if (fragile) {
+            prixAffranchissement += surcoutFragile;
+        }
+
+        // Calculate additional cost based on weight
+        if (poids > 1.0) {
+            prixAffranchissement += (poids - 1.0) * 2.0;
+        }
+
+        return prixAffranchissement;
+    }
+
+    @Override
+    public String toString() {
+        return "Colis [poids=" + poids + ", fragile=" + fragile + "]";
+    }
+}
+
